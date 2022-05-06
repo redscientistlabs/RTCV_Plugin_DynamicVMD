@@ -52,31 +52,7 @@ namespace DYNAMICVMD
                         Logging.GlobalLogger.Error($"{nameof(PluginConnectorEMU)}: SHOW_WINDOW failed Reason:\r\n" + e.ToString());
                         break;
                     }
-                //case Commands.SPECUPDATE:
-                //    SyncObjectSingleton.FormExecute(() =>
-                //    {
-                //        Spec.VisualizerSpec?.Update((PartialSpec)advancedMessage.objectValue, false);
-                //    });
-                //    break;
 
-                //case Commands.SPECPUSH:
-                //    SyncObjectSingleton.FormExecute(() =>
-                //    {
-                //        var temp = new FullSpec((PartialSpec)advancedMessage.objectValue, !RtcCore.Attached);
-
-                //        Spec.VisualizerSpec = new FullSpec(temp.GetPartialSpec(), !RtcCore.Attached);
-                //        Spec.VisualizerSpec.SpecUpdated += (ob, eas) =>
-                //        {
-                //            PartialSpec partial = eas.partialSpec;
-                //            LocalNetCoreRouter.Route(Ep.EMU_SIDE, Commands.SPECPUSH, partial, true);
-                //        };
-                //        RTCV.CorruptCore.MemoryDomains.RefreshDomains();
-                //    });
-                //    e.setReturnValue(true);
-                //    break;
-                //case Commands.
-
-            break;
                 default:
                     break;
             }

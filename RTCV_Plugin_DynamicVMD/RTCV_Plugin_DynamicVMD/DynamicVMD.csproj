@@ -33,28 +33,8 @@
     <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CorruptCore">
-      <HintPath>..\..\..\RTCV\Build\CorruptCore.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="Microsoft.mshtml, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
       <EmbedInteropTypes>True</EmbedInteropTypes>
-    </Reference>
-    <Reference Include="NetCore">
-      <HintPath>..\..\..\RTCV\Build\NetCore.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\..\..\..\..\Stubs\DLLS\Newtonsoft.Json.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="NLog">
-      <HintPath>..\..\..\RTCV\Build\NLog.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="NLog.Windows.Forms">
-      <HintPath>..\..\..\RTCV\Build\NLog.Windows.Forms.dll</HintPath>
-      <Private>False</Private>
     </Reference>
     <Reference Include="PluginHost">
       <HintPath>..\..\..\RTCV\Build\PluginHost.dll</HintPath>
@@ -64,14 +44,6 @@
     <Reference Include="PresentationFramework" />
     <Reference Include="RTCV.Common">
       <HintPath>..\..\..\RTCV\Build\RTCV.Common.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="SevenZipSharp">
-      <HintPath>..\..\..\RTCV\Build\SevenZipSharp.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="SlimDX">
-      <HintPath>..\..\..\RTCV\Build\SlimDX.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />
@@ -86,14 +58,6 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
-    <Reference Include="UI">
-      <HintPath>..\..\..\RTCV\Build\UI.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Vanguard">
-      <HintPath>..\..\..\RTCV\Build\Vanguard.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
@@ -116,7 +80,6 @@
     </PackageReference>
     <PackageReference Include="Costura.Fody">
       <Version>5.7.0</Version>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
   </ItemGroup>
@@ -134,6 +97,24 @@
   <ItemGroup>
     <Folder Include="Formats\" />
     <Folder Include="Icons\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\RTCV\Source\Frontend\UI\UI.csproj">
+      <Project>{bd376bb2-17ec-4fb0-a9fe-6b1bbf4af3e3}</Project>
+      <Name>UI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\RTCV\Source\Libraries\CorruptCore\CorruptCore.csproj">
+      <Project>{b5633a86-dc66-4723-88eb-7dfc95458072}</Project>
+      <Name>CorruptCore</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\RTCV\Source\Libraries\NetCore\NetCore.csproj">
+      <Project>{7e106aec-5614-4206-9e4d-25759c90e8ae}</Project>
+      <Name>NetCore</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\RTCV\Source\Libraries\Vanguard\Vanguard.csproj">
+      <Project>{364c705e-b7ab-4a94-a59b-88899ce65958}</Project>
+      <Name>Vanguard</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
