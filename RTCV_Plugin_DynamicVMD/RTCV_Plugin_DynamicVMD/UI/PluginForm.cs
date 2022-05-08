@@ -28,6 +28,7 @@ namespace DYNAMICVMD.UI
     using System.Windows.Documents.Serialization;
     using RTCV.UI.Modular;
     using RTCV.UI.Components.Controls;
+    using RTCV.NetCore.Commands;
 
     //using System.Windows;
 
@@ -261,12 +262,25 @@ namespace DYNAMICVMD.UI
                 return false;
             }
 
+            var backupDomains = (AllSpec.UISpec[UISPEC.SELECTEDDOMAINS] as string[]);
+
+            if (!backupDomains.Contains("[V]DynamicVMD"))
+            {
+                var listBackupDomains = backupDomains.ToList();
+                listBackupDomains.Add("[V]DynamicVMD");
+                backupDomains = listBackupDomains.ToArray();
+            }
+
             MemoryDomains.RemoveVMD("DynamicVMD");
             MemoryDomains.AddVMD(VMD);
 
             if(cbForceSolo.Checked)
             {
                 S.GET<MemoryDomainsForm>().RefreshDomainsAndKeepSelected(new string[] { "[V]DynamicVMD" });
+            }
+            else
+            {
+                S.GET<MemoryDomainsForm>().RefreshDomainsAndKeepSelected(backupDomains);
             }
 
             return true;

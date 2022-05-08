@@ -64,7 +64,7 @@ namespace DYNAMICVMD.UI
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(7, 20);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(160, 32);
+            this.label1.Size = new System.Drawing.Size(159, 32);
             this.label1.TabIndex = 15;
             this.label1.Text = "Dynamic VMD";
             // 
@@ -102,17 +102,17 @@ namespace DYNAMICVMD.UI
             this.mtbRange.Checked = false;
             this.mtbRange.DisplayCheckbox = true;
             this.mtbRange.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.mtbRange.Hexadecimal = true;
+            this.mtbRange.Hexadecimal = false;
             this.mtbRange.Label = "Range";
             this.mtbRange.Location = new System.Drawing.Point(6, 70);
             this.mtbRange.Maximum = ((long)(65535));
-            this.mtbRange.Minimum = ((long)(0));
+            this.mtbRange.Minimum = ((long)(1));
             this.mtbRange.Name = "mtbRange";
             this.mtbRange.Size = new System.Drawing.Size(188, 60);
             this.mtbRange.TabIndex = 141;
             this.mtbRange.Tag = "color:dark2";
             this.mtbRange.UncapNumericBox = false;
-            this.mtbRange.Value = ((long)(0));
+            this.mtbRange.Value = ((long)(1));
             this.mtbRange.ValueChanged += new System.EventHandler<RTCV.UI.Components.Controls.ValueUpdateEventArgs>(this.ComputeRangeExpression);
             this.mtbRange.CheckChanged += new System.EventHandler<System.EventArgs>(this.ComputeRangeExpression);
             // 
