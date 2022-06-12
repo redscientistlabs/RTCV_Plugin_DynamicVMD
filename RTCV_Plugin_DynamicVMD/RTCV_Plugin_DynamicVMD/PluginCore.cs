@@ -9,6 +9,7 @@ using System.ComponentModel.Composition;
 using System.Windows.Forms;
 using System.Runtime.CompilerServices;
 using System.Text.RegularExpressions;
+using RTCV.UI.Modular;
 
 namespace DYNAMICVMD
 {
@@ -87,8 +88,7 @@ namespace DYNAMICVMD
                         break;
                     case RTCSide.Server:
                         //S.GET<OpenToolsForm>().RegisterTool(cname, $"Open {cname}", () => { LocalNetCoreRouter.Route(Ep.RTC_SIDE, Commands.SHOW_WINDOW, true); });
-
-                        UICore.mtForm.cbSelectBox.Items.Insert(UICore.mtForm.cbSelectBox.Items.Count - 1, PluginForm );
+                        UICore.mtForm.cbSelectBox.Items.Insert(UICore.mtForm.cbSelectBox.Items.Count - 1, PluginForm);
                         break;
                     case RTCSide.Both: //if you use this, you might want to pop a different form on each side. see SHOW_WINDOW in PluginConnectorEMU.cs and PluginConnectorRTC.cs
                         //S.GET<OpenToolsForm>().RegisterTool(cname, $"Open {cname}", () => { 

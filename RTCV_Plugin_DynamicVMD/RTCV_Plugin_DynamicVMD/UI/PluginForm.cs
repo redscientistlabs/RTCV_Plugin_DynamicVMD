@@ -271,12 +271,23 @@ namespace DYNAMICVMD.UI
                 backupDomains = listBackupDomains.ToArray();
             }
 
-            MemoryDomains.RemoveVMD("DynamicVMD");
-            MemoryDomains.AddVMD(VMD);
+            MemoryDomains.RemoveVMD("DynamicVMD", true);
+            MemoryDomains.AddVMD(VMD, true);
 
-            if(cbForceSolo.Checked)
+            //update backup domains
+            backupDomains = (AllSpec.UISpec[UISPEC.SELECTEDDOMAINS] as string[]);
+
+            if (cbForceSolo.Checked)
             {
-                S.GET<MemoryDomainsForm>().RefreshDomainsAndKeepSelected(new string[] { "[V]DynamicVMD" });
+                if(backupDomains.Length == 1 && backupDomains[0] == "[V]DynamicVMD")
+                {
+                    //we all good, what what if not?
+                }
+                else
+                {
+                    S.GET<MemoryDomainsForm>().RefreshDomainsAndKeepSelected(new string[] { "[V]DynamicVMD" });
+                }
+                
             }
             else
             {
@@ -304,13 +315,30 @@ namespace DYNAMICVMD.UI
         {
             S.GET<VmdGenForm>().tbCustomAddresses.Text = tbRangeExpression.Text;
 
+            var items = UICore.GetSafeDynamicComboboxItems(UICore.mtForm.cbSelectBox);
+
             //Selects back the VMD Pool menu
-            foreach (var item in UICore.mtForm.cbSelectBox.Items)
+            foreach (var item in items)
             {
-                if (((dynamic)item).value is VmdGenForm)
+
+                if (item.value is VmdGenForm)
                 {
-                    UICore.mtForm.cbSelectBox.SelectedItem = item;
+                    UICore.SetSelectedComboboxItemFromDynamic(UICore.mtForm.cbSelectBox, item);
                     break;
+                }
+            }
+
+            S.GET<VmdGenForm>().btnLoadDomains_Click(null,null);
+
+            var dynVmdDomain = cbSelectedMemoryDomain.SelectedItem.ToString();
+            var vmdGenFormDomainsComboBox = S.GET<VmdGenForm>().cbSelectedMemoryDomain;
+
+            for(int i = 0; i < vmdGenFormDomainsComboBox.Items.Count; i++)
+            {
+                if(vmdGenFormDomainsComboBox.Items[i].ToString() == dynVmdDomain)
+                {
+                    vmdGenFormDomainsComboBox.SelectedIndex = i;
+                    return;
                 }
             }
 
