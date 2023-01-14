@@ -104,7 +104,7 @@ namespace DYNAMICVMD.UI
         private void btnRefreshDomains_Click(object sender, EventArgs e)
         {
             S.GET<MemoryDomainsForm>().RefreshDomainsAndKeepSelected();
-
+            
             cbSelectedMemoryDomain.Items.Clear();
             var domains = MemoryDomains.MemoryInterfaces?.Keys.Where(it => !it.Contains("[V]")).ToArray();
             if (domains?.Length > 0)
@@ -273,6 +273,9 @@ namespace DYNAMICVMD.UI
 
             MemoryDomains.RemoveVMD("DynamicVMD", true);
             MemoryDomains.AddVMD(VMD, true);
+
+            //Refresh the domains in the VMD pool
+            S.GET<VmdPoolForm>().RefreshVMDs();
 
             //update backup domains
             backupDomains = (AllSpec.UISpec[UISPEC.SELECTEDDOMAINS] as string[]);
