@@ -21,7 +21,7 @@ namespace DYNAMICVMD
         // >>> Make sure you rename BOTH the namespace and class (Very important)
         public string Description => "Manipulate a VMD on the fly";
         public string Author => "ircluzar";
-        public Version Version => new Version(1, 0, 0);
+        public Version Version => new Version(1, 0, 1);
 
         //-----[ Plugin loading workflow ]-----
 
